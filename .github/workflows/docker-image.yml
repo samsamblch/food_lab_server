@@ -1,0 +1,27 @@
+name: GDLB Lab Server CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: debian-runner
+
+    env:
+      IMAGE_NAME: cr.yandex/crpa34rqlp3qs1qn53np/lab-server
+      IMAGE_TAG: rev.${{ github.run_number }}
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag $IMAGE_NAME:$IMAGE_TAG
+    
+    - name: Push to Yandex
+      run: docker push $IMAGE_NAME:$IMAGE_TAG
+
+    - name: Clear
+      run: docker rmi $IMAGE_NAME:$IMAGE_TAG
