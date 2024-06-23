@@ -1,0 +1,30 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "app1-flutweb",
+            "type": "dart",
+            "request": "launch",
+            "program": "bin/server.dart",
+            "args": [
+                "-d web-server",
+                "--web-port 9081",
+                "--web-hostname 0.0.0.0"
+            ]
+        },
+        {
+            "name": "app2-flutweb",
+            "type": "dart",
+            "request": "launch",
+            "program": "bin/server.dart",
+            "args": [
+                "-d",
+                "web-server",
+                "--web-port",
+                "9082",
+                "--web-hostname",
+                "0.0.0.0"
+            ]
+        }
+    ]
+}
