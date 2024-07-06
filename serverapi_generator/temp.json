@@ -1,0 +1,140 @@
+{
+    openapi: 3.0.3, 
+    info: {
+        title: Delivery Food API, 
+        description: API для получения списка меню для заказа и других целей., 
+        version: 1.0.0
+    }, 
+    servers: {
+        - url https //test.api.example.com: {
+        description: Тестовый сервер
+    }, - url https //api.example.com: {description: Продовый сервер}
+}, 
+    paths: {
+        /orderstatus: {
+            get: {
+                summary: Получить статус заказа, 
+                description: Получить текущий статус заказа., 
+                responses: {
+                200: {
+                        description: JSON объект со статусом заказа, content: {application/json: {schema: {type: object, properties: {status: {type: string, enum: [в процессе, нет заказа
+                                        ], description: Текущий статус заказа
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                400: {description: Неверный запрос
+                },
+                500: {description: Внутренняя ошибка сервера
+                }
+            }
+        }
+    }, /user: {get: {summary: Получить информацию о пользователе, description: Получить информацию о текущем пользователе., responses: {
+                200: {description: JSON объект с информацией о пользователе, content: {application/json: {schema: {$ref: "#/components/schemas/User"
+                            }
+                        }
+                    }
+                },
+                400: {description: Неверный запрос
+                },
+                500: {description: Внутренняя ошибка сервера
+                }
+            }
+        }
+    }, /restaurant: {get: {summary: Получить информацию о ресторане и меню, description: Получить информацию о ресторане и список доступных меню для размещения заказа., responses: {
+                200: {description: JSON объект с информацией о ресторане и меню, content: {application/json: {schema: {allOf: {- $ref: "#/components/schemas/Restaurant"
+                                }
+                            }
+                        }
+                    }
+                },
+                400: {description: Неверный запрос
+                },
+                500: {description: Внутренняя ошибка сервера
+                }
+            }
+        }
+    }, /createorder: {post: {summary: Отправить заказ, description: Отправить заказ с указанными параметрами., requestBody: {content: {application/json: {schema: {type: object, properties: {items: {type: array, items: {type: object, properties: {menuItemId: {type: integer, description: ID элемента меню
+                                            }, quantity: {type: integer, description: Количество
+                                            }
+                                        }, required: {- menuItemId: - menuItemId, - quantity: - quantity
+                                        }
+                                    }
+                                }, totalCost: {allOf: {- $ref: "#/components/schemas/Money"
+                                    }, description: Общая стоимость заказа
+                                }, restaurantComment: {type: string, description: Комментарий для ресторана
+                                }, customerName: {type: string, description: Имя клиента
+                                }, customerPhone: {type: string, description: Телефон клиента
+                                }, courierComment: {type: string, description: Комментарий для курьера
+                                }
+                            }, required: {- items: - items, - totalCost: - totalCost, - customerName: - customerName, - customerPhone: - customerPhone
+                            }
+                        }
+                    }
+                }
+            }, responses: {
+                200: {description: Заказ успешно отправлен, content: {application/json: {schema: {type: object, properties: {payLink: {type: string, description: Ссылка для оплаты заказа
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                400: {description: Неверный запрос
+                },
+                500: {description: Внутренняя ошибка сервера
+                }
+            }
+        }
+    }
+}, 
+    components: {
+        schemas: {
+            User: {
+                type: object, 
+                properties: {
+                    address: {type: string, description: Адрес пользователя
+                }
+            }, 
+                required: {- address: - address
+            }
+        }, 
+            Money: {type: object, properties: {amount: {type: number, format: float, description: Сумма денег
+                }, currency: {type: string, description: Валюта
+                }
+            }, required: {- amount: - amount, - currency: - currency
+            }
+        }, 
+            MenuItem: {type: object, properties: {id: {type: integer, description: Уникальный идентификатор элемента меню
+                }, name: {type: string, description: Название элемента меню
+                }, price: {allOf: {- $ref: "#/components/schemas/Money"
+                    }, description: Цена элемента меню
+                }, count: {type: integer, description: Количество позиций, доступных для заказа
+                }, imageUrl: {type: string, description: URL картинки элемента меню
+                }
+            }, required: {- id: - id, - name: - name, - price: - price, - count: - count
+            }
+        }, Restaurant: {type: object, properties: {status: {type: string, enum: [закрыт, открыт
+                    ], description: Статус ресторана
+                }, deliveryTime: {type: string, description: Время доставки
+                }, deliveryCost: {allOf: {- $ref: "#/components/schemas/Money"
+                    }, description: Стоимость доставки (если отсутствует, то бесплатно)
+                }, maxOrderAmount: {
+                    allOf: {
+                        - $ref: "#/components/schemas/Money"
+                    }, 
+                    description: Максимальная сумма заказа (если отсутствует, то не ограничена)
+                }, workingHours: {type: string, description: Время работы ресторана
+                }, menu: {type: array, items: {allOf: {- $ref: "#/components/schemas/MenuItem"
+                        }
+                    }, description: Меню ресторана
+                }
+            }, 
+            required: {- status: - status, - deliveryTime: - deliveryTime, - workingHours: - workingHours, - menu: - menu
+            }
+        }
+    }
+}
+}
