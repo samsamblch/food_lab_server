@@ -7,22 +7,22 @@
     "menu": [
         {
             "name": "Apple",
-            "price": 100,
+            "price": 100.0,
             "imageUrl": "https://black-meadow-07b785003.5.azurestaticapps.net/images/apple420.png"
         },
         {
             "name": "Banana",
-            "price": 200,
+            "price": 200.0,
             "imageUrl": "https://black-meadow-07b785003.5.azurestaticapps.net/images/banana420.png"
         },
         {
             "name": "Mango",
-            "price": 300,
+            "price": 300.0,
             "imageUrl": "https://black-meadow-07b785003.5.azurestaticapps.net/images/mango420.png"
         },
         {
             "name": "Orange",
-            "price": 400,
+            "price": 400.0,
             "imageUrl": "https://black-meadow-07b785003.5.azurestaticapps.net/images/orange420.png"
         }
     ]
