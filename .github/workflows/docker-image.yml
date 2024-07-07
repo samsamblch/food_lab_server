@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: debian-runner
+    runs-on: docker-x86
 
     env:
       IMAGE_NAME: cr.yandex/crpa34rqlp3qs1qn53np/lab-server
