@@ -4,6 +4,7 @@ FROM dart:stable AS build
 # Resolve app dependencies.
 WORKDIR /app
 COPY pubspec.* ./
+COPY delivery_food_api/ ./
 RUN dart pub get
 
 # Copy app source code (except anything in .dockerignore) and AOT compile app.
