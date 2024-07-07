@@ -17,7 +17,7 @@ RUN dart compile exe bin/main.dart -o bin/server
 FROM scratch
 COPY --from=build /runtime/ /
 COPY --from=build /app/bin/server /app/bin/
-COPY assets/ /app/assets/
+COPY assets/ /app/
 
 # Start server.
 EXPOSE 8080
