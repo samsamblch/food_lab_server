@@ -26,7 +26,7 @@ COPY --from=build /runtime/ /
 
 # Copy the compiled server and any other necessary files from the build stage
 COPY --from=build /app/bin/server /app/bin/
-COPY --from=build /app/assets/ /app/assets/
+COPY --from=build /app/assets/ /assets/
 
 
 # Expose the port the server will run on
