@@ -1,0 +1,29 @@
+{
+    "name": "The Best Restaurant",
+    "openingTime": "Sometimes",
+    "deliveryTime": "Lightning fast",
+    "status": "OPEN",
+    "currency": "EUR",
+    "menu": [
+        {
+            "name": "Apple",
+            "price": 100,
+            "imageUrl": "https://black-meadow-07b785003.5.azurestaticapps.net/images/apple420.png"
+        },
+        {
+            "name": "Banana",
+            "price": 200,
+            "imageUrl": "https://black-meadow-07b785003.5.azurestaticapps.net/images/banana420.png"
+        },
+        {
+            "name": "Mango",
+            "price": 300,
+            "imageUrl": "https://black-meadow-07b785003.5.azurestaticapps.net/images/mango420.png"
+        },
+        {
+            "name": "Orange",
+            "price": 400,
+            "imageUrl": "https://black-meadow-07b785003.5.azurestaticapps.net/images/orange420.png"
+        }
+    ]
+}

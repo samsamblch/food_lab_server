@@ -10,7 +10,7 @@ void generate(Map<String, dynamic> spec) {
     return;
   }
 
-  final outputDir = toProjectNameCase(spec['info']['title']);
+  final outputDir = toProjectNameCase(spec['info']['title'] + '/lib');
   createDirIfNotExists(outputDir);
 
   _generateService(spec['paths'], outputDir);
@@ -27,18 +27,45 @@ void _generateService(Map<String, dynamic> paths, String outputDir) {
     final className = toClassName(path);
     final buffer = StringBuffer();
 
-    buffer.writeln('class $className {');
+//     import 'package:shelf/shelf.dart';
+// import 'package:shelf_router/shelf_router.dart';
 
-    details.forEach((method, operation) {
-      final methodName = toMethodName(method, path);
-      final returnType = determineReturnType(operation);
-      final parameters = determineParameters(operation);
+// class TemplateService {
+//   TemplateService({
+//     required this.basePath,
+//   });
 
-      buffer.writeln('  Future<$returnType> $methodName($parameters) async {');
-      buffer.writeln('    // TODO: Implement $methodName');
-      buffer.writeln('  }');
-      buffer.writeln();
-    });
+    buffer.writeln('import \'package:shelf/shelf.dart\';');
+    buffer.writeln('import \'package:shelf_router/shelf_router.dart\';');
+
+    buffer.writeln('\nclass $className {');
+
+    buffer.writeln('  $className({');
+    buffer.writeln('    required this.basePath,');
+    buffer.writeln('  });');
+
+    buffer.writeln('\n  final String basePath;');
+    buffer.writeln();
+    buffer.writeln('  void setup(Router router) {');
+    buffer.writeln('    router.get(routePath(), _rootHandler);');
+    buffer.writeln('  }');
+
+    buffer.writeln('\n  String routePath({String subpath = \'\'}) => \'\$basePath\$subpath\';');
+
+    buffer.writeln('\n  Response _rootHandler(Request req) {');
+    buffer.writeln('    return Response.ok(\'Template Service in work!\\n\');');
+    buffer.writeln('  }');
+
+    // details.forEach((method, operation) {
+    //   final methodName = toMethodName(method, path);
+    //   final returnType = determineReturnType(operation);
+    //   final parameters = determineParameters(operation);
+
+    //   buffer.writeln('  Future<$returnType> $methodName($parameters) async {');
+    //   buffer.writeln('    // TODO: Implement $methodName');
+    //   buffer.writeln('  }');
+    //   buffer.writeln();
+    // });
 
     buffer.writeln('}');
 

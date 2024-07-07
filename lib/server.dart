@@ -1,27 +1,24 @@
 import 'dart:io';
 
+import 'package:lab_server/api/restaurant_service_imp.dart';
+import 'package:lab_server/welcome_service.dart';
 import 'package:shelf/shelf.dart';
 import 'package:shelf/shelf_io.dart';
 import 'package:shelf_router/shelf_router.dart';
 
 class Server {
 // Configure routes.
-  late final _router = Router()
-    ..get('/', _rootHandler)
-    ..get('/echo/<message>', _echoHandler);
+  late final _router = Router();
 
-  Response _rootHandler(Request req) {
-    return Response.ok('Hello, World!\n');
-  }
-
-  Response _echoHandler(Request request) {
-    final message = request.params['message'];
-    return Response.ok('$message\n');
-  }
+  final welcomeService = WelcomeService();
+  final restaurantService = RestaurantServiceImp(basePath: '/api/delivery');
 
   Future<void> startServer({
     String? envPort,
   }) async {
+    welcomeService.setup(_router);
+    restaurantService.setup(_router);
+
     // Use any available host or container IP (usually `0.0.0.0`).
     final ip = InternetAddress.anyIPv4;
 

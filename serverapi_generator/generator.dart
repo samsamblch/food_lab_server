@@ -4,6 +4,7 @@ import 'dart:io';
 
 import 'dto_generator.dart' as dto_generator;
 import 'service_generator.dart' as service_generator;
+import 'pubspec_generator.dart' as pubspec_generator;
 import 'yaml_parser.dart';
 
 void main(List<String> args) {
@@ -21,4 +22,5 @@ void main(List<String> args) {
 
   dto_generator.generate(spec);
   service_generator.generate(spec);
+  pubspec_generator.generate(spec);
 }

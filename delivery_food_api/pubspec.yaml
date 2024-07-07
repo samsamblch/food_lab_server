@@ -1,0 +1,11 @@
+name: delivery_food_api
+description: API для получения списка меню для заказа и других целей.
+version: 1.0.0
+homepage: homepage
+
+environment:
+  sdk: ">=3.4.3 <4.0.0"
+
+dependencies:
+  shelf: ^1.4.0
+  shelf_router: ^1.1.0

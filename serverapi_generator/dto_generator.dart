@@ -10,7 +10,7 @@ void generate(Map<String, dynamic> spec) {
     return;
   }
 
-  final outputDir = toProjectNameCase(spec['info']['title']);
+  final outputDir = toProjectNameCase(spec['info']['title'] + '/lib');
   createDirIfNotExists(outputDir);
 
   _generateDto(spec['components'], outputDir);
