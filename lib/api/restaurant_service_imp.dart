@@ -22,7 +22,7 @@ class RestaurantServiceImp extends RestaurantService {
   Future<Response> _restourantHandler(Request req) async {
     final json = await Tools.readJsonFromAsset('assets/jsons/delivery_food/restourant.json');
 
-    await Future.delayed(Duration(seconds: 10));
+    await Future.delayed(Duration(seconds: 3));
 
     return Response.ok(
       jsonEncode(json),
