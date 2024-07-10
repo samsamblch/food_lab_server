@@ -1,29 +1,44 @@
 {
-    "name": "The Best Restaurant",
+    "restaurant": "The Best Restaurant",
     "openingTime": "Sometimes",
     "deliveryTime": "Lightning fast",
     "status": "OPEN",
     "currency": "EUR",
     "menu": [
         {
-            "name": "Apple",
-            "price": 100.0,
-            "imageUrl": "https://black-meadow-07b785003.5.azurestaticapps.net/images/apple420.png"
+            "section": "Fruits",
+            "menu": [
+                {
+                    "item": "Apple",
+                    "price": 100.0,
+                    "imageUrl": "https://black-meadow-07b785003.5.azurestaticapps.net/images/apple420.png"
+                },
+                {
+                    "item": "Banana",
+                    "price": 200.0,
+                    "imageUrl": "https://black-meadow-07b785003.5.azurestaticapps.net/images/banana420.png"
+                },
+                {
+                    "item": "Pineapple",
+                    "price": 500.0,
+                    "imageUrl": "https://black-meadow-07b785003.5.azurestaticapps.net/images/cocoa"
+                }
+            ]
         },
         {
-            "name": "Banana",
-            "price": 200.0,
-            "imageUrl": "https://black-meadow-07b785003.5.azurestaticapps.net/images/banana420.png"
-        },
-        {
-            "name": "Mango",
-            "price": 300.0,
-            "imageUrl": "https://black-meadow-07b785003.5.azurestaticapps.net/images/mango420.png"
-        },
-        {
-            "name": "Orange",
-            "price": 400.0,
-            "imageUrl": "https://black-meadow-07b785003.5.azurestaticapps.net/images/orange420.png"
+            "section": "Also Fruits",
+            "menu": [
+                {
+                    "item": "Mango",
+                    "price": 300.0,
+                    "imageUrl": "https://black-meadow-07b785003.5.azurestaticapps.net/images/mango420.png"
+                },
+                {
+                    "item": "Orange",
+                    "price": 400.0,
+                    "imageUrl": "https://black-meadow-07b785003.5.azurestaticapps.net/images/orange420.png"
+                }
+            ]
         }
     ]
 }
