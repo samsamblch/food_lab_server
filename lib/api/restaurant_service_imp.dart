@@ -22,7 +22,7 @@ class RestaurantServiceImp extends RestaurantService {
 
     return Response.internalServerError();
 
-    // await Future.delayed(Duration(seconds: 10));
+    // await Future.delayed(Duration(seconds: 3));
 
     // return Response.ok(
     //   jsonEncode(json),
