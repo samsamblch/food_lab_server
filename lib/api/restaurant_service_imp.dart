@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
 
 import 'package:delivery_food_api/service/restaurant_service.dart';
 import 'package:shelf/shelf.dart';
@@ -17,17 +19,24 @@ class RestaurantServiceImp extends RestaurantService {
     router.get(routePath(subpath: '/restourant'), _restourantHandler);
   }
 
+  bool isError = true;
+
   Future<Response> _restourantHandler(Request req) async {
     final json = await Tools.readJsonFromAsset('assets/jsons/delivery_food/restourant.json');
 
     await Future.delayed(Duration(seconds: 3));
 
-    return Response.internalServerError();
-    // return Response.ok(
-    //   jsonEncode(json),
-    //   headers: {
-    //     HttpHeaders.contentTypeHeader: 'application/json',
-    //   },
-    // );
+    if (isError) {
+      isError = false;
+      return Response.internalServerError();
+    } else {
+      isError = true;
+      return Response.ok(
+        jsonEncode(json),
+        headers: {
+          HttpHeaders.contentTypeHeader: 'application/json',
+        },
+      );
+    }
   }
 }
