@@ -11,17 +11,20 @@
                 {
                     "item": "Apple",
                     "price": 100.0,
-                    "imageUrl": "https://black-meadow-07b785003.5.azurestaticapps.net/images/apple420.png"
+                    "imageUrl": "https://black-meadow-07b785003.5.azurestaticapps.net/images/apple420.png",
+                    "description": "An apple is a round, edible fruit produced by an apple tree (Malus spp., among them the domestic or orchard apple; Malus domestica)."
                 },
                 {
                     "item": "Banana",
                     "price": 200.0,
-                    "imageUrl": "https://black-meadow-07b785003.5.azurestaticapps.net/images/banana420.png"
+                    "imageUrl": "https://black-meadow-07b785003.5.azurestaticapps.net/images/banana420.png",
+                    "description": "A banana is an elongated, edible fruit – botanically a berry – produced by several kinds of large herbaceous flowering plants in the genus Musa." 
                 },
                 {
                     "item": "Pineapple",
                     "price": 500.0,
-                    "imageUrl": "https://black-meadow-07b785003.5.azurestaticapps.net/images/cocoa"
+                    "imageUrl": "https://black-meadow-07b785003.5.azurestaticapps.net/images/cocoa",
+                    "description": "The pineapple (Ananas comosus) is a tropical plant with an edible fruit; it is the most economically significant plant in the family Bromeliaceae." 
                 }
             ]
         },
@@ -31,12 +34,14 @@
                 {
                     "item": "Mango",
                     "price": 300.0,
-                    "imageUrl": "https://black-meadow-07b785003.5.azurestaticapps.net/images/mango420.png"
+                    "imageUrl": "https://black-meadow-07b785003.5.azurestaticapps.net/images/mango420.png",
+                    "description": "A mango is an edible stone fruit produced by the tropical tree Mangifera indica. It originated from the region between northwestern Myanmar, Bangladesh, and northeastern India." 
                 },
                 {
                     "item": "Orange",
                     "price": 400.0,
-                    "imageUrl": "https://black-meadow-07b785003.5.azurestaticapps.net/images/orange420.png"
+                    "imageUrl": "https://black-meadow-07b785003.5.azurestaticapps.net/images/orange420.png",
+                    "description": "An orange, also called sweet orange when it is desired to distinguish it from the bitter orange (Citrus aurantium), is the fruit of a tree in the family Rutaceae. Botanically, this is the hybrid Citrus  sinensis, between the pomelo (Citrus maxima) and the mandarin orange (Citrus reticulata). There are many related hybrids including of mandarins and sweet orange; these, and the bitter orange, may be described as oranges. The chloroplast genome, and therefore the maternal line, is that of pomelo. The sweet orange has had its full genome sequenced." 
                 }
             ]
         }
